@@ -1,17 +1,41 @@
+import { HomeContent, HomeHeader, NavRegister } from '../components'
+import { Brand } from '../components/ui'
+
 import style from '../style/screens/home.module.sass'
+import image from '../assets'
 
 const HomeScreen = () => {
     return (
         <div className={style.homeScreen}>
-            <div className={style.homeHeader}>
-                <div className={style.brand}></div>
-                <div className={style.headerImg}></div>
-            </div>
-            <div className={style.homeContent}>
-                <div className={style.welcome}></div>
-                <div className={style.devMember}></div>
-            </div>
-            <div className={style.navRegister}></div>
+            <HomeHeader>
+                <Brand />
+                <img className={style.headerImg} src={image.supermarket}/>
+            </HomeHeader>
+            <HomeContent>
+                <div className={style.welcome}>Hãy đăng ký <strong>thẻ thành viên</strong> để nhanh tay sở hữu nhiều quà tặng và ưu đãi của chuỗi siêu thị chúng tôi!!</div>
+                <div className={style.devMember}>
+                    <div className={style.tilte}>Nhóm phát triển</div>
+                    <div className={style.members}>
+                        <div className={style.member}>
+                            <img className={style.avatar} src={image.bao} />
+                            <div className={style.memberName}>Đặng Hoài Bão - 1912697</div>
+                        </div>
+                        <div className={style.member}>
+                            <img className={style.avatar} src={image.huy} />
+                            <div className={style.memberName}>Đặng Hoài Bão - 1912697</div>
+                        </div>
+                        <div className={style.member}>
+                            <img className={style.avatar} src={image.phong} />
+                            <div className={style.memberName}>Đặng Hoài Bão - 1912697</div>
+                        </div>
+                        <div className={style.member}>
+                            <img className={style.avatar} src={image.tri} />
+                            <div className={style.memberName}>Đặng Hoài Bão - 1912697</div>
+                        </div>
+                    </div>
+                </div>
+            </HomeContent>
+            <NavRegister />
         </div>
     )
 }

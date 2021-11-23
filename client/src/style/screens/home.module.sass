@@ -1,5 +1,43 @@
 @import '../color'
 .homeScreen
-    width: 100vw
-    height: 100vh
-    background-color: black
+    position: relative
+    display: flex
+    width: 375px
+    height: 812px
+    overflow: hidden
+    justify-content: center
+
+    margin: 0 auto
+    border-radius: 10px
+    border: solid 3px #005c96
+    
+    .headerImg
+        z-index: 1
+    
+    .welcome
+        position: absolute
+        width: 320px
+        top: 80px
+        font-size: 23px
+        text-align: center
+    
+    .devMember
+        position: absolute
+        top: 250px
+        width: 280px
+        .tilte
+            font-size: 20px
+            font-weight: 500
+        .members
+            position: absolute
+            left: 20px
+            font-size: 18px
+            .member
+                display: flex
+                flex-direction: row
+                .avatar
+                    width: 30px
+                    height: 30px
+                    margin: auto 10px
+                .memberName
+                    padding: 8px 0

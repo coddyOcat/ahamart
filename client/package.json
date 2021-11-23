@@ -9,6 +9,8 @@
   "author": "Dang Hoai Bao",
   "license": "MIT",
   "dependencies": {
+    "bootstrap-icons": "^1.7.1",
+    "google-map-react": "^2.1.10",
     "react": "^18.0.0-beta-149b420f6-20211119",
     "react-dom": "^18.0.0-beta-149b420f6-20211119",
     "react-scripts": "^4.0.3",
