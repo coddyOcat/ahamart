@@ -4,7 +4,7 @@ import style from '../style/screens/branchDetail.module.sass'
 import image from '../assets'
 
 const BranchDetail = () => {
-    const onActive = 1
+    const onActive = 2
     return (
         <div className={style.branchDetail}>
             <HomeHeader >
