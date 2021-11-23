@@ -1,13 +1,14 @@
 
-import { HomeScreen } from "../screens"
-import BranchDetail from "../screens/branchDetail"
+import { BranchDetailScreen, HomeScreen, RegisterScreen } from "../screens"
+
 import '../style/index.sass'
 
 const App = () => {
     
     return (
         // <HomeScreen />
-        <BranchDetail />
+        // <BranchDetailScreen />
+        <RegisterScreen />
     )
 }
 

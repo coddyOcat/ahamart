@@ -1,14 +1,20 @@
-import brandLogo from './brandLogo.png'
+import brandLogo from './brand-logo.png'
+import packetLogo from './packet-logo.png'
+import avatars from './avatars.png'
 import supermarket from './supermarket.png'
 import branchDetail from './branch-detail.png'
 import listBranch from './list-branch.png'
+import bronzeCard from './bronze-card.png'
+import silverCard from './silver-card.png'
+import goldCard from './gold-card.png'
+import vipCard from './vip-card.png'
 import bao from './bao.png'
 import huy from './huy.png'
 import phong from './phong.png'
 import tri from './tri.png'
 
 const image = {
-    brandLogo, supermarket, branchDetail, listBranch, bao, huy, phong, tri
+    brandLogo, packetLogo, avatars, supermarket, branchDetail, bronzeCard, silverCard, goldCard, listBranch, vipCard, bao, huy, phong, tri
 }
 
 export default image

@@ -1,6 +1,6 @@
 import Map from 'google-map-react'
 
-import "bootstrap-icons/font/bootstrap-icons.css";
+import "bootstrap-icons/font/bootstrap-icons.css"
 import style from '../../style/ui/branchsAdd.module.sass'
 
 const branchsAdd = () => {
@@ -22,4 +22,4 @@ const branchsAdd = () => {
     )
 }
 
-export default branchsAdd;
+export default branchsAdd

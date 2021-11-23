@@ -1,4 +1,4 @@
-import "bootstrap-icons/font/bootstrap-icons.css";
+import "bootstrap-icons/font/bootstrap-icons.css"
 import style from '../../style/ui/branchsContact.module.sass'
 
 const branchsContact = () => {

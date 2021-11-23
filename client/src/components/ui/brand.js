@@ -10,4 +10,4 @@ const brand = () => {
     )
 }
 
-export default brand;
+export default brand
