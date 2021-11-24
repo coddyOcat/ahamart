@@ -1,0 +1,55 @@
+@import '../color'
+
+.login
+    position: relative
+    display: flex
+    width: 375px
+    height: 812px
+    overflow: hidden
+    justify-content: center
+
+    margin: 0 auto
+    border-radius: 10px
+    border: solid 3px #005c96
+    background-color: $join-background
+
+    .loginBox
+        position: absolute
+        top: 270px
+        background-color: white
+        width: 330px
+        height: 400px
+        border-radius: 20px
+        display: flex
+        flex-direction: column
+        align-items: center
+        
+        .loginInput
+            position: absolute
+            top: 50px
+            width: 300px
+            height: 200px
+            display: flex
+            flex-direction: column
+            justify-content: space-evenly
+            .boxbox
+                position: relative
+                .icon
+                    position: absolute
+                    left: 0
+                    bottom: 10px
+                    font-size: 25px
+                    z-index: 1
+                input
+                    margin-left: 30px
+                    width: 70%
+                .forgetPass
+                    position: absolute
+                    right: 0
+                    bottom: 12px
+                    font-size: 14px
+                    z-index: 1
+                    color: blue
+                    &:hover
+                        cursor: pointer
+                        font-weight: bold

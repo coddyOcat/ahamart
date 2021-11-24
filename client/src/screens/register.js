@@ -5,7 +5,7 @@ import style from '../style/screens/register.module.sass'
 const register = () => {
     return (
         <div className={style.register}>
-            <RegisterHeader step={3}/>
+            <RegisterHeader page="ĐĂNG KÝ" step={3}/>
             <div className={style.registerInput}>
                 {/* <RegisterStepOne /> */}
                 {/* <RegisterStepTwo /> */}
