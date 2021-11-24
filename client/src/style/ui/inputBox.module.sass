@@ -1,0 +1,28 @@
+@import '../color'
+
+.inputBox
+    position: relative
+    margin: 5px 0
+    &:focus-within
+        .inputTitle
+            font-weight: 500
+            color: black
+    .inputTitle
+        font-size: 18px
+        color: gray
+    .inputBorder
+        border-bottom: solid 2.5px gray
+        width: 100%
+        .input
+            font-size: 18px
+            height: 35px
+            border: 0
+            outline: 0
+            &:focus
+                border-color: black
+    .check
+        position: absolute
+        right: 0
+        bottom: 5px
+        i
+            font-size: 30px

@@ -1,0 +1,46 @@
+@import '../color'
+
+.inputBox_v3
+    
+    margin: 5px 0
+    &:focus-within
+        .inputTitle
+            font-weight: 500
+            color: black
+    .inputTitle
+        font-size: 18px
+        color: gray
+
+    .InputBox
+        width: 100%
+        display: flex
+        flex-direction: row
+        .slash
+            margin-left: 8px
+            margin-right: -2px
+            font-size: 30px
+            font-weight: lighter
+        .inputBox_v3_1
+            width: 10%
+        .inputBox_v3_2
+            width: 10%
+        .inputBox_v3_3
+            width: 20%
+        .inputBox
+            position: relative
+            .input
+                text-align: center
+                font-size: 18px
+                height: 35px
+                width: 100%
+                border: 0
+                border-bottom: solid 2.5px gray
+                outline: 0
+                &:focus
+                    border-color: black
+            .check
+                position: absolute
+                right: 0
+                bottom: 10px
+                i
+                    font-size: 30px
