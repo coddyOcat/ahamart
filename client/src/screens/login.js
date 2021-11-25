@@ -1,5 +1,6 @@
 import { BtnLogin, RegisterHeader } from '../components'
 import { InputBox } from '../components/ui'
+
 import style from '../style/screens/login.module.sass'
 
 const login = () => {

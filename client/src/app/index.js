@@ -1,5 +1,5 @@
 
-import { BranchDetailScreen, HomeScreen, LoginScreen, RegisterScreen } from "../screens"
+import { BranchDetailScreen, HomeScreen, LoginScreen, RegisterScreen, UserScreen } from "../screens"
 
 import '../style/index.sass'
 
@@ -9,7 +9,8 @@ const App = () => {
         // <HomeScreen />
         // <BranchDetailScreen />
         // <RegisterScreen />
-        <LoginScreen />
+        // <LoginScreen />
+        <UserScreen />
     )
 }
 
