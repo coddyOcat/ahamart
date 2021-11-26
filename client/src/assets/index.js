@@ -13,8 +13,9 @@ import huy from './huy.png'
 import phong from './phong.png'
 import tri from './tri.png'
 
+import gift from './gift.png'
 const image = {
-    brandLogo, packetLogo, avatars, supermarket, branchDetail, bronzeCard, silverCard, goldCard, listBranch, vipCard, bao, huy, phong, tri
+    brandLogo, packetLogo, avatars, supermarket, branchDetail, bronzeCard, silverCard, goldCard, listBranch, vipCard, bao, huy, phong, tri, gift
 }
 
 export default image
