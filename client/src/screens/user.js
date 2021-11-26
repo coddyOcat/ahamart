@@ -1,4 +1,4 @@
-import { UserCreditCardContent, UserHeader, UserHomeContent, UserInfoContent } from '../components'
+import { UserCreditCardContent, UserHeader, UserHomeContent, UserInfoContent, UserPointPacketContent, UserPromoContent } from '../components'
 
 import style from '../style/screens/user.module.sass'
 
@@ -9,7 +9,9 @@ const user = () => {
             <div className={style.userContent}>
                 {/* <UserHomeContent /> */}
                 {/* <UserInfoContent /> */}
-                <UserCreditCardContent />
+                {/* <UserCreditCardContent /> */}
+                {/* <UserPointPacketContent /> */}
+                <UserPromoContent />
             </div>
         </div>
     )
