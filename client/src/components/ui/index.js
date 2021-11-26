@@ -8,3 +8,5 @@ export { default as InputBoxV2 } from './inputBox_v2'
 export { default as InputBoxV3 } from './inputBox_v3'
 
 export { default as UserNav } from './userNav'
+export { default as UserInfo } from './userInfo'
+export { default as CreditCard } from './creditCard'

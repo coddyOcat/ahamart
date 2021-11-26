@@ -16,3 +16,5 @@ export { default as BtnLogin } from './btnLogin'
 
 export { default as UserHeader } from './userHeader'
 export { default as UserHomeContent } from './userHomeContent'
+export { default as UserInfoContent } from './userInfoContent'
+export { default as UserCreditCardContent } from './userCreditCardContent'

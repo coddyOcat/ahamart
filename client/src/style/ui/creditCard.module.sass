@@ -1,0 +1,35 @@
+@import '../color'
+
+.creditCard
+    position: relative
+    display: flex
+    flex-direction: row
+    width: 100%
+    margin-top: 10px
+    border-radius: 15px
+    padding-left: 10px
+    padding-top: 5px
+    padding-bottom: 5px
+    background-color: #c0e6ff90
+    &:hover
+        background-color: #85ceff
+    .card
+        font-size: 40px
+        padding: auto 0
+        margin-right: 20px
+    .content
+        display: flex
+        flex-direction: column
+        
+        .infoTitle
+            font-size: 18px
+        .infoContent
+            font-size: 14px
+            font-weight: 300
+            color: #666666
+    .active
+        position: absolute
+        right: 10px
+        bottom: 15px
+        color: #dc0000
+        font-size: 25px
