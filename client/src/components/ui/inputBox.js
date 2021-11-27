@@ -7,8 +7,8 @@ const inputBox = ({ title, check}) => {
             <div className={style.inputTitle}>{title}</div>
             <div className={style.inputBorder}><input className={style.input} /></div>
             { !!check && <div className={style.check}>
-                <i class="bi bi-check" style={{color: "#2F9055"}}/>
-                <i class="bi bi-exclamation" style={{color: "#EE0000"}}/>
+                <i className="bi bi-check" style={{color: "#2F9055"}}/>
+                <i className="bi bi-exclamation" style={{color: "#EE0000"}}/>
             </div>}
         </div>
     )

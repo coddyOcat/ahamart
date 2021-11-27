@@ -1,14 +1,16 @@
+import { Link } from 'react-router-dom'
+
 import style from '../style/components/btnLogin.module.sass'
 
 const btnLogin = () => {
     return (
         <div className={style.btnLogin}>
-            <div className={style.loginBtn}>
+            <Link to="/user/123" style={{textDecoration: "none"}} className={style.loginBtn}>
                 {"Đăng nhập"}
-            </div>
+            </Link>
             <div className={style.otherChoice}>
                 <div className={style.choiceText}>Chưa có tài khoản?</div>
-                <div className={style.choiceBtn}>Đăng ký</div>
+                <Link to="/register" className={style.choiceBtn}>Đăng ký</Link>
             </div>
         </div>
     )

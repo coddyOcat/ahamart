@@ -9,7 +9,7 @@ const branchsAdd = () => {
             <div className={style.branchsAddTitle}>Địa chỉ</div>
             <div className={style.mapBorder}>
                 <div className={style.branchAdd}>
-                    <i class="bi-geo-alt"></i>
+                    <i className="bi-geo-alt"></i>
                     <div>Thủ Đức, TP.Hồ Chí Minh</div>
                 </div> 
                 <Map

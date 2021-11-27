@@ -26,7 +26,7 @@ const userHeader = ({ cardOn, title }) => {
             <div className={style.userName} style={{width: !!cardOn? "80%": ""}}>Đặng Hoài Bão</div>
             <div className={style.infoBar}>
                 {!!cardOn? <div className={style.userHomeHeader}>
-                    <i class="bi-geo-alt"></i>
+                    <i className="bi-geo-alt"></i>
                     <div>21 Khu 6, Dĩ An, Thủ Đức, Tp. Hồ Chí Minh</div>
                 </div>
                 :<div className={style.userDetailHeader}>{title}</div>}

@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 import { HomeContent, HomeHeader, NavRegister } from '../components'
 import { Brand } from '../components/ui'
 
@@ -36,7 +38,7 @@ const HomeScreen = () => {
                 </div>
             </HomeContent>
             <NavRegister />
-            <div className={style.rightNav}/>
+            <Link to="/branch" className={style.rightNav}/>
         </div>
     )
 }
