@@ -6,8 +6,18 @@
   "author": "Dang Hoai Bao",
   "license": "MIT",
   "private": true,
+  "scripts": {
+    "start": "yarn && node src",
+    "dev": "nodemon src",
+    "build": "cd ../client && yarn && yarn start"
+  },
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^5.0.0-alpha.8",
-    "mysql2": "^2.3.3"
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.12.0-alpha.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
   }
 }

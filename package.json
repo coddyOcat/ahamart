@@ -4,7 +4,7 @@
   "description": "AhaMart SuperMarket",
   "scripts": {
     "start": "node server",
-    "dev": "cd server && yarn && cd .. && nodemon server ",
+    "dev": "cd server && yarn && yarn dev ",
     "build": "cd client && yarn && yarn start"
   },
   "main": "/server/index.js",

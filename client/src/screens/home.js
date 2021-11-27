@@ -36,6 +36,7 @@ const HomeScreen = () => {
                 </div>
             </HomeContent>
             <NavRegister />
+            <div className={style.rightNav}/>
         </div>
     )
 }
