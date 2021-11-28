@@ -3,7 +3,16 @@ const sql = require('./index')
 const User = () => {
     
 }
-
+User.insertCustomer = (newUser, result) => {
+    let query = "CALL insertCustomer(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"
+    sql.query(query, newUser, (err) => {
+        if (err) {
+            result(err)
+            return
+        }
+        result(null)
+    })
+}
 User.select = (result) => {
     let query = "SELECT * FROM customer"
     sql.query( query, (err, res) => {
