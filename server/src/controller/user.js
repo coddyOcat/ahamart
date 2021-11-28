@@ -6,6 +6,7 @@ exports.insertCustomer = async (req, res) => {
             res.status(400).json(
                 {message: "Content can not be empty!"}
             )
+            return
         }
         //get data from client
         var {Ssn, HouseNo, StName, WardName, DistName, CityName, CountryName, UserName, Passw, Email, PhoneNo, Gender, Nationality, DOB, SName, GName} = req.body
@@ -31,6 +32,10 @@ exports.insertCustomer = async (req, res) => {
             if(err) console.log("Lỗi thực hiện truy vấn ", err.message)
             else console.log("Đã thêm khách hàng mới")
         })
+        User.insertLoyaltyCard(newUser[0], (err) => {
+            if(err) console.log("Lỗi thực hiện truy vấn ", err.message)
+            else console.log("Đã thêm thẻ thành viên mới")
+        })
         res.json("OK")
         return
         // await LoyaltyCard.insertCard()
@@ -38,17 +43,42 @@ exports.insertCustomer = async (req, res) => {
         console.log(err)
     }
 }
-// exports.select = (req, res) => {
-//     if(!req.body) {
-//         res.status(400).send(
-//             {message: "Content can not be empty!"}
-//         )
-//     }
-//     User.select((err, data) => {
-//         if (err)
-//             res.status(500).send({
-//                 message: err.message || "Some error occurred while retrieving tutorials."
-//             });
-//         else res.send(data);
-//     })
-// }
+exports.loginCustomer = (req, res) => {
+    try {
+        if(!req.body) {
+            res.status(400).json(
+                {message: "Content can not be empty!"}
+            )
+            return
+        }
+        const {UserName, Passw} = req.body
+        User.findAcc(UserName, (err, data) => {
+            if (err) console.log(err.message)
+            else {
+                if (data.length){
+                    if(Passw == data[0].PASSW) res.json({...data[0], "status": "OK"})
+                    else res.json({"status": "Wrong Pass"})
+                } else res.json({"status": "No Username Available"})
+            }
+        })
+    } catch (err) {
+        console.log(err)
+    }
+}
+exports.selectCustomerInfo = (req, res) => {
+    try {
+        if(!req.body) {
+            res.status(400).json(
+                {message: "Content can not be empty!"}
+            )
+            return
+        }
+        const {id} = req.params
+        User.selectCustomerInfo(id, (err, data) => {
+            if (err) console.log(err.message)
+            else res.json(data);
+        })
+    } catch (err) {
+        console.log(err)
+    }
+}

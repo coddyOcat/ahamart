@@ -12,7 +12,7 @@ const inputBox = ({ title, name, check, userInfo, handleForm}) => {
             <div className={style.inputTitle}>{title}</div>
             <div className={style.inputBorder}><input className={style.input} type={name == "Passw"? "password":"text"} name={name} value={userInfo[name]} onChange={handleForm} /></div>
             { !!check && <div className={style.check}>
-                <i className="bi bi-check" style={{color: "#2F9055"}}/>
+                {/* <i className="bi bi-check" style={{color: "#2F9055"}}/> */}
                 <i className="bi bi-exclamation" style={{color: "#EE0000"}}/>
             </div>}
         </div>

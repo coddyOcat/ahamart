@@ -12,6 +12,7 @@
     "axios": "^0.24.0",
     "bootstrap-icons": "^1.7.1",
     "google-map-react": "^2.1.10",
+    "moment": "^2.29.1",
     "react": "^18.0.0-beta-149b420f6-20211119",
     "react-dom": "^18.0.0-beta-149b420f6-20211119",
     "react-router-dom": "^6.0.2",

@@ -23,16 +23,16 @@ const HomeScreen = () => {
                             <div className={style.memberName}>Đặng Hoài Bão - 1912697</div>
                         </div>
                         <div className={style.member}>
-                            <img className={style.avatar} src={image.huy} />
-                            <div className={style.memberName}>Đặng Hoài Bão - 1912697</div>
+                            <img className={style.avatar} src={image.phong} />
+                            <div className={style.memberName}>Chung Đông Phong- 1911837</div>
                         </div>
                         <div className={style.member}>
-                            <img className={style.avatar} src={image.phong} />
-                            <div className={style.memberName}>Đặng Hoài Bão - 1912697</div>
+                            <img className={style.avatar} src={image.huy} />
+                            <div className={style.memberName}>Nguyễn Quang Huy - 1916081</div>
                         </div>
                         <div className={style.member}>
                             <img className={style.avatar} src={image.tri} />
-                            <div className={style.memberName}>Đặng Hoài Bão - 1912697</div>
+                            <div className={style.memberName}>Hồ Đức Trí - 1912288</div>
                         </div>
                     </div>
                 </div>

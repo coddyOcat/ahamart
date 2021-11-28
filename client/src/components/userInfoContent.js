@@ -1,18 +1,20 @@
+import moment from "moment"
+
 import { UserInfo } from './ui'
 
 import style from '../style/components/userInfoContent.module.sass'
 
-const userInfoContent = () => {
+const userInfoContent = ({ customerInfo }) => {
     return (
         <div className={style.userInfoContent}>
-            <UserInfo title="Họ và tên" content="Đặng Hoài Bão"/>
-            <UserInfo title="Giới tính" content="Nam"/>
-            <UserInfo title="Ngày sinh" content="21/11/2001 "/>
-            <UserInfo title="Địa chỉ" content="Diêm Trường, Xuân Lộc, Sông Cầu, Phú Yên"/>
-            <UserInfo title="Số điện thoại" content="0969189947"/>
-            <UserInfo title="Email" content="hoaibaobtx@gmail.com"/>
-            <UserInfo title="Tên đăng nhập" content="coddy"/>
-            <UserInfo title="Mật khẩu" content="**********"/>
+            <UserInfo title="Họ và tên" content={customerInfo.SName+" "+customerInfo.GName}/>
+            <UserInfo title="Giới tính" content={customerInfo.Gender == "M"? "Nam": customerInfo.Gender == "F"? "Nữ": "Không xác định"}/>
+            <UserInfo title="Ngày sinh" content={(new Date(customerInfo.DOB)).toLocaleDateString("en-GB")}/>
+            <UserInfo title="Địa chỉ" content={customerInfo.HouseNo+", "+customerInfo.StName+", "+customerInfo.WardName+", "+customerInfo.DistName+", "+customerInfo.CityName}/>
+            <UserInfo title="Số điện thoại" content={customerInfo.PhoneNo}/>
+            <UserInfo title="Email" content={customerInfo.Email}/>
+            <UserInfo title="Tên đăng nhập" content={customerInfo.UserName}/>
+            <UserInfo title="Mật khẩu" content={"*".repeat(customerInfo.Passw.length)}/>
             <div className={style.navEnd}>Chỉnh sửa</div>
         </div>
     )
