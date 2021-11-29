@@ -1,8 +1,45 @@
 import Axios from "./axios";
 
+export const findUserName = async (userName) => {
+    const url = "/user/find/userName"
+    const {data} = await Axios.post(url, [userName]).then(res => res)
+    return data
+}
+export const findPhoneNo = async (phoneNo) => {
+    const url = "/user/find/phoneNo"
+    const {data} = await Axios.post(url, [phoneNo]).then(res => res)
+    return data
+}
+export const findEmail = async (email) => {
+    const url = "/user/find/email"
+    const {data} = await Axios.post(url, [email]).then(res => res)
+    return data
+}
+export const findSsn = async (ssn) => {
+    const url = "/user/find/ssn"
+    const {data} = await Axios.post(url, [ssn]).then(res => res)
+    return data
+}
 export const insertCustomer = async (userInfo) => {
     const url = "/user/register"
-    const {data} = await Axios.post(url, userInfo)
+    //get data
+    var {Ssn, HouseNo, StName, WardName, DistName, CityName, CountryName, UserName, Passw, Email, PhoneNo, Gender, Nationality, DOB, SName, GName} = userInfo
+    //process data
+    if (Gender == "") {
+        return {status: "Chưa đủ thông tin bắt buộc"}
+    }
+    else if (Gender == "Nam") Gender = "M"
+    else if (Gender == "Nữ") Gender = "F"
+    else Gender = "O"
+    //not null
+    const notNull = [Ssn, CityName, CountryName, UserName, Passw, Email, PhoneNo, Gender, Nationality, DOB, SName, GName]
+    notNull.map(x => {
+        if (x=="") {
+            return {status: "Chưa đủ thông tin bắt buộc"}
+        }
+    })
+    const newUser = [Ssn, HouseNo, StName, WardName, DistName, CityName, CountryName, UserName, Passw, Email, PhoneNo, Gender, Nationality, DOB, SName, GName]
+    const {data} = await Axios.post(url, newUser).then(res => res)
     return data
 }
 export const loginCustomer = async (userInfo) => {

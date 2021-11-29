@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "AhaMart SuperMarket",
   "scripts": {
-    "start": "node server",
+    "start": "cd server && yarn && yarn start",
     "dev": "cd server && yarn && yarn dev ",
     "build": "cd client && yarn && yarn start"
   },

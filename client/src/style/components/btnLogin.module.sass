@@ -17,7 +17,7 @@
         width: 296px
         height: 49px
         background-color: $join-button
-        box-shadow: -1px 3px 1px $shadow
+        box-shadow: -2px 4px 1px $shadow
         border-radius: 18px
         text-align: center
         font-size: 24px
@@ -25,13 +25,17 @@
         line-height: 50px
         &:hover
             cursor: pointer
+            background-color: #ff5900
+            font-weight: bold
     .otherChoice
         display: flex
         flex-direction: row
         font-size: 15px
-        .choiceText
-        
+        // .choiceText
         .choiceBtn
             margin-left: 3px
             font-weight: bold
             color: $highlight-text
+            &:hover
+                color: #003759
+                text-transform: uppercase

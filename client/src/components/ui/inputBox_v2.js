@@ -4,10 +4,6 @@ import 'bootstrap-icons/font/bootstrap-icons.css'
 import style from '../../style/ui/inputBox_v2.module.sass'
 
 const inputBox_v2 = ({ title, name_1, name_2, userInfo, handleForm}) => {
-    useEffect(() => {
-        userInfo[name_1] = ""
-        userInfo[name_2] = ""
-    }, [])
     return (
         <div className={style.inputBox_v2}>
             <div className={style.inputTitle}>{title}</div>

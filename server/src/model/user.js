@@ -13,6 +13,46 @@ User.insertCustomer = (newUser, result) => {
         result(null)
     })
 }
+User.findUserName = (userName, result) => {
+    let query = "SELECT * from ACCINFO where USERNAME = ?"
+    sql.query(query, [userName], (err, data) => {
+        if(err){
+            result(err, null)
+            return
+        }
+        result(null, data)
+    })
+}
+User.findPhoneNo = (phoneNo, result) => {
+    let query = "SELECT * from CUS_PHONENO where PHONENO = ?"
+    sql.query(query, [phoneNo], (err, data) => {
+        if(err){
+            result(err, null)
+            return
+        }
+        result(null, data)
+    })
+}
+User.findEmail = (email, result) => {
+    let query = "SELECT * from CUS_EMAIL where EMAIL = ?"
+    sql.query(query, [email], (err, data) => {
+        if(err){
+            result(err, null)
+            return
+        }
+        result(null, data)
+    })
+}
+User.findSsn = (ssn, result) => {
+    let query = "SELECT * from CUSTOMER where SSN = ?"
+    sql.query(query, [ssn], (err, data) => {
+        if(err){
+            result(err, null)
+            return
+        }
+        result(null, data)
+    })
+}
 User.insertLoyaltyCard = (Ssn, result) => {
     let query = "CALL Branch_gives_LoyaltyCard_to_Customer(?,?,?,?,?,?)"
     let inp = ["Cus_"+Ssn, Ssn, "bra_hcm_01", "bronze", 0, 0]

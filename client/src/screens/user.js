@@ -38,8 +38,8 @@ const user = () => {
     useEffect( () => {
         const fetchCustomerInfoById = async () => {
             try {
-                const data = await getCustomerInfo(id)
-                setCustomerInfo(data)
+                // const data = await getCustomerInfo(id)
+                setCustomerInfo(await getCustomerInfo(id))
             } catch (error) { }
         }
         fetchCustomerInfoById()

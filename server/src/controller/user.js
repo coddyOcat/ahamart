@@ -3,43 +3,106 @@ const User = require('../model/user')
 exports.insertCustomer = async (req, res) => {
     try {
         if(!req.body) {
+            return res.status(400).json(
+                {message: "Content can not be empty!"}
+            )
+        }
+        const newUser = req.body
+        User.insertCustomer(newUser, (err) => {
+            if(err) return res.json({status: err.message})
+            else {
+                console.log("Đã thêm khách hàng mới")
+                return res.json({status:"OK"})
+            }
+        })
+        User.insertLoyaltyCard(newUser[0], (err) => {
+            if(err) console.log(err.message)
+            else {
+                console.log("Đã thêm thẻ thành viên mới")
+            } 
+        })
+        return
+    } catch(err) {
+        console.log(err)
+    }
+}
+exports.findUserName = async (req, res) => {
+    try {
+        if(!req.body) {
             res.status(400).json(
                 {message: "Content can not be empty!"}
             )
             return
         }
-        //get data from client
-        var {Ssn, HouseNo, StName, WardName, DistName, CityName, CountryName, UserName, Passw, Email, PhoneNo, Gender, Nationality, DOB, SName, GName} = req.body
-        
-        //process data
-        if (Gender == "") {
-            res.json("Chưa nhập đủ thông tin")
-            return
-        }
-        else if (Gender == "Nam") Gender = "M"
-        else if (Gender == "Nữ") Gender = "F"
-        else Gender = "O"
-        const newUser = [Ssn, HouseNo, StName, WardName, DistName, CityName, CountryName, UserName, Passw, Email, PhoneNo, Gender, Nationality, DOB, SName, GName]
-        //check data
-            //not null
-        newUser.map(x => {
-            if (x=="") {
-                res.json("Chưa nhập đủ thông tin")
-                return
+        const userName = req.body[0]
+        User.findUserName(userName, (err, data) => {
+            if (err) console.log(err.message)
+            else {
+                if (data.length) res.json({"status": "OK"})
+                else res.json({"status": "Username Available"})
             }
         })
-        User.insertCustomer(newUser, (err) => {
-            if(err) console.log("Lỗi thực hiện truy vấn ", err.message)
-            else console.log("Đã thêm khách hàng mới")
+    } catch (err) {
+        console.log(err)
+    }
+}
+exports.findPhoneNo = async (req, res) => {
+    try {
+        if(!req.body) {
+            res.status(400).json(
+                {message: "Content can not be empty!"}
+            )
+            return
+        }
+        const phoneNo = req.body[0]
+        User.findPhoneNo(phoneNo, (err, data) => {
+            if (err) console.log(err.message)
+            else {
+                if (data.length) res.json({"status": "OK"})
+                else res.json({"status": "PhoneNo Available"})
+            }
         })
-        User.insertLoyaltyCard(newUser[0], (err) => {
-            if(err) console.log("Lỗi thực hiện truy vấn ", err.message)
-            else console.log("Đã thêm thẻ thành viên mới")
+    } catch (err) {
+        console.log(err)
+    }
+}
+exports.findEmail = async (req, res) => {
+    try {
+        if(!req.body) {
+            res.status(400).json(
+                {message: "Content can not be empty!"}
+            )
+            return
+        }
+        const email = req.body[0]
+        User.findEmail(email, (err, data) => {
+            if (err) console.log(err.message)
+            else {
+                if (data.length) res.json({"status": "OK"})
+                else res.json({"status": "Email Available"})
+            }
         })
-        res.json("OK")
-        return
-        // await LoyaltyCard.insertCard()
-    } catch(err) {
+    } catch (err) {
+        console.log(err)
+    }
+}
+exports.findSsn = async (req, res) => {
+    try {
+        if(!req.body) {
+            res.status(400).json(
+                {message: "Content can not be empty!"}
+            )
+            return
+        }
+        const ssn = req.body[0]
+        User.findSsn(ssn, (err, data) => {
+            if (err) console.log(err.message)
+            else {
+                if (data.length) res.json({"status": "OK"})
+                else res.json({"status": "Ssn Available"})
+            }
+        })
+    } catch (err) {
         console.log(err)
     }
 }

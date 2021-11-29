@@ -3,19 +3,10 @@ import { useEffect, useState } from 'react'
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import style from '../../style/ui/inputBox_v3.module.sass'
 
-const inputBox_v3 = ({title, inp_v3_name, userInfo, setUserInfo}) => {
-    const [dob, setDob] = useState({"day":"", "month":"", "year":""})
-    const handleDob = async (e) => {
-        const {name, value} = e.target
-        setDob({ ...dob, [name]: value })
-        
-    }
+const inputBox_v3 = ({title, inp_v3_name, userInfo, setUserInfo, dob, handleDob}) => {
     const setDOB = () => {
         setUserInfo({...userInfo, [inp_v3_name]: dob["year"]+"-"+dob["month"]+"-"+dob["day"]})
     }
-    useEffect(() => {
-        userInfo[inp_v3_name] = ""
-    }, [])
     return (
         <div className={style.inputBox_v3}>
             <div className={style.inputTitle}>{title}</div>
