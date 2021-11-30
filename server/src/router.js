@@ -1,5 +1,6 @@
 module.exports = app => {
     const User = require('./controller/user')
+    const Branch = require('./controller/branch')
   
     var router = require("express").Router();
 
@@ -11,6 +12,8 @@ module.exports = app => {
 
     router.post('/user/login', User.loginCustomer)
     router.get('/user/:id', User.selectCustomerInfo)
+
+    router.get('/branch', Branch.getListBranch)
   
     app.use('/api', router);
 };

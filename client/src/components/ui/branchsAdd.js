@@ -3,14 +3,14 @@ import Map from 'google-map-react'
 import "bootstrap-icons/font/bootstrap-icons.css"
 import style from '../../style/ui/branchsAdd.module.sass'
 
-const branchsAdd = () => {
+const branchsAdd = ({branchsInfo}) => {
     return (
         <div className={style.branchsAdd}>
             <div className={style.branchsAddTitle}>Địa chỉ</div>
             <div className={style.mapBorder}>
                 <div className={style.branchAdd}>
                     <i className="bi-geo-alt"></i>
-                    <div>Thủ Đức, TP.Hồ Chí Minh</div>
+                    <div>{branchsInfo.DISTNAME+", "+branchsInfo.CITYNAME}</div>
                 </div> 
                 <Map
                     defaultZoom={8}

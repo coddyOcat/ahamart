@@ -1,5 +1,6 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
+import { getListBranchsInfo } from '../services/branch'
 import {BranchDetailContent, ListBranchContent, HomeContent, HomeHeader, NavBranch, NavRegister } from '../components'
 
 import style from '../style/screens/branchDetail.module.sass'
@@ -10,6 +11,15 @@ const BranchDetail = () => {
     const changeActive = (ind) => {
         setActive(ind)
     }
+    const [listBranchsInfo, setListBranchsInfo] = useState([{BID:"", CITYNAME:"", DISTNAME:"", PHONENO:""}])
+    useEffect( () => {
+        const fetchGetListBranchsInfo = async () => {
+            try {
+                setListBranchsInfo(await getListBranchsInfo())
+            } catch (error) { }
+        }
+        fetchGetListBranchsInfo()
+    }, [])
     return (
         <div className={style.branchDetail}>
             <HomeHeader >
@@ -17,7 +27,7 @@ const BranchDetail = () => {
             </HomeHeader>
             <NavBranch onActive={onActive} changeActive={changeActive}/>
             <HomeContent>
-                {onActive == 1? <BranchDetailContent /> : <ListBranchContent />}
+                {onActive == 1? <BranchDetailContent branchsInfo={listBranchsInfo[0]}/> : <ListBranchContent listBranchsInfo={listBranchsInfo} />}
             </HomeContent>
             <NavRegister />
         </div>
