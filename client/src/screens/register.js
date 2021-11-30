@@ -54,7 +54,7 @@ const register = () => {
         }
         else if(step == 3) {   
             const res = await insertCustomer(userInfo) 
-            if (res.status == "OK") navigate(`/user/${userInfo.Ssn == ""? 0: userInfo.Ssn}`)
+            if (res.status == "OK") navigate("/")
             else {
                 setMessage(res.status)
                 setStep(3)
@@ -84,6 +84,15 @@ const register = () => {
         }
         else if (userInfo.Email != "") setEmailExist(1)
         else setEmailExist(-1)
+    } 
+    const checkSsn = async () => {
+        const res4 = await findSsn(userInfo.Ssn)
+        if (res4.status == "OK") {
+            setSsnExist(0)
+            setStep(2)
+        }
+        else if (userInfo.Ssn != "") setSsnExist(1)
+        else setSsnExist(-1)
     }
     const handleDob = async (e) => {
         const {name, value} = e.target
@@ -99,7 +108,7 @@ const register = () => {
             <RegisterHeader page="ĐĂNG KÝ" step={step}/>
             <div className={style.registerInput}>
                 {step == 1? <RegisterStepOne handleForm={handleForm} userInfo={userInfo} checkInfo={[checkUserName,checkPhoneNo,checkEmail]} status={[userNameExist, phoneExist, emailExist]}/> 
-                : step == 2? <RegisterStepTwo handleForm={handleForm} setUserInfo={setUserInfo} userInfo={userInfo} dob={dob} handleDob={handleDob} status={[ssnExist]}/> 
+                : step == 2? <RegisterStepTwo handleForm={handleForm} setUserInfo={setUserInfo} userInfo={userInfo} dob={dob} handleDob={handleDob} checkInfo={[checkSsn]} status={[ssnExist]}/> 
                 : <RegisterStepFinal handleForm={handleForm} userInfo={userInfo}/>}
             </div>
             <BtnRegister step={step} changeStep={changeStep}/>

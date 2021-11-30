@@ -1,18 +1,20 @@
 import { useState } from 'react'
 
 import { UserInfo } from './ui'
+import { updateCustomer } from '../services/user'
 
 import style from '../style/components/userInfoContent.module.sass'
 
 const userInfoContent = ({ customerInfo, setCustomerInfo}) => {
     const [edit, setEdit] = useState(false)
-    const [dob, setDob] = useState({"day": (new Date(customerInfo.DOB)).getDate(), "month": (new Date(customerInfo.DOB)).getMonth(), "year": (new Date(customerInfo.DOB)).getFullYear()})
+    const [dob, setDob] = useState({"day": (new Date(customerInfo.DOB)).getDate(), "month": (new Date(customerInfo.DOB)).getMonth() + 1, "year": (new Date(customerInfo.DOB)).getFullYear()})
 
     const enableEdit = () => {
         setEdit(true)
     }
-    const saveEdit = () => {
-        console.log(customerInfo)
+    const saveEdit = async () => {
+        setEdit(false)
+        await updateCustomer(customerInfo)
     }
     const handleEdit = (e) => {
         const {name, value} = e.target
@@ -57,7 +59,7 @@ const userInfoContent = ({ customerInfo, setCustomerInfo}) => {
             <UserInfo title="Mật khẩu" name="passw" 
                 edit={edit} handleEdit={handleEdit}
                 value1={customerInfo.Passw}
-                edit={edit} content={"*".repeat(customerInfo.Passw.length)}/>
+                edit={edit} content={"*".repeat(6)}/>
             <div className={style.navEnd} onClick={enableEdit} style={{display: edit? "none": "block"}}>Chỉnh sửa</div>
             <div className={style.navSave} onClick={saveEdit} style={{display: edit? "block": "none"}}>Lưu</div>
         </div>

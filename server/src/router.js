@@ -5,6 +5,7 @@ module.exports = app => {
     var router = require("express").Router();
 
     router.post('/user/register', User.insertCustomer)
+    router.post('/user/update', User.updateCustomer)
     router.post('/user/find/userName', User.findUserName)
     router.post('/user/find/phoneNo', User.findPhoneNo)
     router.post('/user/find/email', User.findEmail)

@@ -13,6 +13,16 @@ User.insertCustomer = (newUser, result) => {
         result(null)
     })
 }
+User.updateCustomer = (userInfo, result) => {
+    let query = "CALL updateCustomer(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"
+    sql.query(query, userInfo, (err) => {
+        if (err) {
+            result(err)
+            return
+        }
+        result(null)
+    })
+}
 User.findUserName = (userName, result) => {
     let query = "SELECT * from ACCINFO where USERNAME = ?"
     sql.query(query, [userName], (err, data) => {

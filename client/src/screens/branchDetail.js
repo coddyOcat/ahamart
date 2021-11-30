@@ -8,6 +8,7 @@ import image from '../assets'
 
 const BranchDetail = () => {
     const [onActive, setActive] = useState(1)
+    const [branchIndex, setBranchIndex] = useState(0)
     const changeActive = (ind) => {
         setActive(ind)
     }
@@ -27,7 +28,7 @@ const BranchDetail = () => {
             </HomeHeader>
             <NavBranch onActive={onActive} changeActive={changeActive}/>
             <HomeContent>
-                {onActive == 1? <BranchDetailContent branchsInfo={listBranchsInfo[0]}/> : <ListBranchContent listBranchsInfo={listBranchsInfo} />}
+                {onActive == 1? <BranchDetailContent branchsInfo={listBranchsInfo[branchIndex]}/> : <ListBranchContent listBranchsInfo={listBranchsInfo} branchIndex={branchIndex} setBranchIndex={setBranchIndex}/>}
             </HomeContent>
             <NavRegister />
         </div>

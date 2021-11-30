@@ -6,7 +6,7 @@ const supStaff = ({ support, name, phone, email, active}) => {
             <div className={style.name} onClick={() => console.log(support)}>{"NV. " + name}</div>
             <div className={style.phone}>{"SĐT: " + phone}</div>
             <div className={style.phone}>{"Email: " + email}</div>
-            {!!active && <i className={`${style.active} bi bi-telephone-forward-fill`}/>}
+            {!!active && <i className={`${style.active} bi bi-telephone-forward-fill`} onClick={() => alert(`Đang gọi đến số điện thoại ${phone} . . . `)}/>}
         </div>
     )
 }

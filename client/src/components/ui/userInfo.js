@@ -19,8 +19,8 @@ const userInfo = ({ title, name, value1, value2, value3, value4, value5, content
                 </div>
             :(name == "dob")?
                 <div className={style.editContainer}>
-                    <input className={style.editContent} name={"day"} value={value1} onChange={handleDob} style={{width: "20px", marginRight: "10px"}}/>/
-                    <input className={style.editContent} name={"month"} value={value2} onChange={handleDob} style={{width: "20px", marginRight: "10px"}}/>/
+                    <input className={style.editContent} name={"day"} value={value1} onChange={handleDob} onBlur={setDOB} style={{width: "20px", marginRight: "10px"}}/>/
+                    <input className={style.editContent} name={"month"} value={value2} onChange={handleDob} onBlur={setDOB} style={{width: "20px", marginRight: "10px"}}/>/
                     <input className={style.editContent} name={"year"} value={value3} onChange={handleDob} onBlur={setDOB} style={{width: "40px"}}/>
                 </div>
             :(name == "address")?
@@ -41,7 +41,7 @@ const userInfo = ({ title, name, value1, value2, value3, value4, value5, content
                 </div>
             :(name == "passw")?
                 <div className={style.editContainer}>
-                    <input type="password" className={style.editContent} name={"Passw"} value={value1} onChange={handleEdit} style={{width: "180px"}}/>
+                    <input type="password" className={style.editContent} name={"Passw"} value={value1} onChange={handleEdit} style={{width: "50px"}}/>
                 </div>
             :(<div className={style.infoContent}>{content}</div>)
         }

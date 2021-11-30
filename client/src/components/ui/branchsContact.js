@@ -6,7 +6,7 @@ const branchsContact = ({branchsInfo}) => {
         <div className={style.branchsContact}>
             <div className={style.branchsContactTitle}>Liên lạc</div>
             <div className={style.branchPhones}>
-                <div className={`${style.phone} ${style.phone1}`}>
+                <div className={`${style.phone} ${style.phone1}`} onClick={() => alert(`Gọi hỗ trợ ${branchsInfo.PHONENO} . . . `)}>
                     <i className="bi bi-telephone-forward-fill"></i>
                     <div>{branchsInfo.PHONENO}</div>
                 </div>

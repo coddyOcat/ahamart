@@ -6,7 +6,7 @@ import style from '../../style/ui/inputBox.module.sass'
 const inputBox = ({ title, name, check, checkInfo, userInfo, handleForm}) => {
     const checkkk = () => {
         if (!checkInfo) return
-        if (name == "UserName" || name == "PhoneNo" || name == "Email") checkInfo()
+        if (name == "UserName" || name == "PhoneNo" || name == "Email" || name == "Ssn") checkInfo()
         else return null
     }
     return (

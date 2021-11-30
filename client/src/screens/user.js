@@ -32,10 +32,13 @@ const user = () => {
         Ssn: "",
         StName: "",
         UserName: "",
-        WardName: ""
+        WardName: "",
+        MClass: "",
+        MPoint: 0,
+        EPoint: 0
     })
     const { id } = useParams()
-    const [pointPacket, setPointPacket] = useState()
+    const [pointPacket, setPointPacket] = useState([{POINTS:0}])
     const [supports, setSupport] = useState()
     useEffect( () => {
         const fetchCustomerInfoById = async () => {
@@ -48,14 +51,31 @@ const user = () => {
         }
         fetchCustomerInfoById()
     }, [])
+    useEffect(() => {
+        var SUM = 0
+        var TYPE = "bronze"
+        if (pointPacket[0].POINTS != 0) pointPacket.map(x => SUM += x.POINTS)
+        if (SUM >= 1000) TYPE="vip"
+        else if (SUM >= 500) TYPE="gold"
+        else if (SUM >= 250) TYPE="silver"
+        else TYPE = "bronze"
+        setCustomerInfo({...customerInfo, "MPoint": SUM, "EPoint": SUM - 300, "MClass": TYPE})
+    },[pointPacket])
+    const [giftStatus, setGiftStatus] = useState([false, true])
+    const changeGift = (index) => {
+        if(giftStatus[index]){
+            setGiftStatus([false,false])
+            setCustomerInfo({...customerInfo, "EPoint": customerInfo.EPoint - 300})
+        }
+    }
     const contentRender = () => {
         if(cardOn) return (<UserHomeContent setCardInd={setCardInd} setCardOn={setCardOn}/>)
         else {
-            if (cardInd == 0) return (<UserInfoContent customerInfo={customerInfo} setCustomerInfo={setCustomerInfo}/>)
+            if (cardInd == 0) return (<UserInfoContent customerInfo={customerInfo} setCustomerInfo={changeGift}/>)
             else if (cardInd == 1) return (<UserCreditCardContent />)
             else if (cardInd == 2) return (<UserPointPacketContent pointPacket={pointPacket}/>)
             else if (cardInd == 3) return (<UserPromoContent />)
-            else if (cardInd == 4) return (<UserGiftContent />)
+            else if (cardInd == 4) return (<UserGiftContent giftStatus={giftStatus} setGiftStatus={changeGift}/>)
             else if (cardInd == 5) return (<UserSupportContent supports={supports}/>)
         }
     }

@@ -1,9 +1,9 @@
 const User = require('../model/user')
 const bcrypt = require('bcryptjs')
 
+// Ma hoa mat khau
 const hashPassword = (password) => {
     return new Promise((resolve, reject) => {
-        // Generate a salt at level 12 strength
         bcrypt.genSalt(12, (err, salt) => {
         if (err)
             reject(err);
@@ -28,6 +28,7 @@ exports.insertCustomer = async (req, res) => {
             )
         }
         const newUser = req.body
+        newUser[8] = await hashPassword(newUser[8])
         User.insertCustomer(newUser, (err) => {
             if(err) return res.json({status: err.message})
             else {
@@ -43,6 +44,24 @@ exports.insertCustomer = async (req, res) => {
         })
         return
     } catch(err) {
+        console.log(err)
+    }
+}
+exports.updateCustomer = async (req, res) => {
+    try {
+        if(!req.body) {
+            res.status(400).json(
+                {message: "Content can not be empty!"}
+            )
+            return
+        }
+        const userInfo = req.body
+        if (userInfo[8].length != 60) userInfo[8] = await hashPassword(userInfo[8])
+        User.updateCustomer(userInfo, (err) => {
+            if (err) console.log(err.message)
+            else console.log("Cập nhật thành công")
+        })
+    } catch (err) {
         console.log(err)
     }
 }
@@ -126,7 +145,7 @@ exports.findSsn = async (req, res) => {
         console.log(err)
     }
 }
-exports.loginCustomer = (req, res) => {
+exports.loginCustomer = async (req, res) => {
     try {
         if(!req.body) {
             res.status(400).json(
@@ -139,9 +158,10 @@ exports.loginCustomer = (req, res) => {
             if (err) console.log(err.message)
             else {
                 if (data.length){
-                    if(Passw == data[0].PASSW) res.json({...data[0], "status": "OK"})
+                    const checkPass = verifyPassword(Passw, data[0].PASSW)
+                    if(checkPass) res.json({...data[0], "status": "OK"})
                     else res.json({"status": "Wrong Pass"})
-                } else res.json({"status": "No Username Available"})
+                } else res.json({"status": "Wrong Pass"}) //User No Available
             }
         })
     } catch (err) {
@@ -198,4 +218,8 @@ exports.getSupport = (req, res) => {
     } catch (err) {
         console.log(err)
     }
+}
+exports.passCrypt = () => {
+    hashPassword()
+    verifyPassword()
 }
