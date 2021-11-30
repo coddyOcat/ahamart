@@ -71,7 +71,7 @@ const user = () => {
     const contentRender = () => {
         if(cardOn) return (<UserHomeContent setCardInd={setCardInd} setCardOn={setCardOn}/>)
         else {
-            if (cardInd == 0) return (<UserInfoContent customerInfo={customerInfo} setCustomerInfo={changeGift}/>)
+            if (cardInd == 0) return (<UserInfoContent customerInfo={customerInfo} setCustomerInfo={setCustomerInfo}/>)
             else if (cardInd == 1) return (<UserCreditCardContent />)
             else if (cardInd == 2) return (<UserPointPacketContent pointPacket={pointPacket}/>)
             else if (cardInd == 3) return (<UserPromoContent />)
