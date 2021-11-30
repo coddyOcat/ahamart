@@ -84,5 +84,24 @@ User.selectCustomerInfo = (id, result) => {
         result(null, data)
     })
 }
-
+User.getPointPacket = (id, result) => {
+    let query = "CALL getListPointPacket(?)"
+    sql.query(query, id, (err, data) => {
+        if (err) {
+            result(err, null)
+            return
+        }
+        result(null, data)
+    })
+}
+User.getSupport = (result) => {
+    let query = "SELECT * FROM SUPSTAFF, STEMAIL, STPHONENO WHERE SUPSTAFF.STAFFID = STEMAIL.STAFFID AND SUPSTAFF.STAFFID = STPHONENO.STAFFID"
+    sql.query(query, (err, data) => {
+        if (err) {
+            result(err, null)
+            return
+        }
+        result(null, data)
+    })
+}
 module.exports = User

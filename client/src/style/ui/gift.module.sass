@@ -1,19 +1,20 @@
 @import '../color'
 
 .gift
-    width: 140px
+    width: 130px
     display: flex
     flex-direction: column
     align-items: center
     border-radius: 20px
     background-color: #e9e9e9
     // padding-top: 10px
-    padding-bottom: 10px
+    padding: 10px
     margin-bottom: 10px
     .infoTitle
-        font-size: 18px
+        font-size: 14px
         font-weight: bold
         text-transform: uppercase
+        
     .footer
         padding-top: 5px
         display: flex
@@ -21,3 +22,14 @@
         .infoPoint
             margin-right: 10px
             font-weight: 500
+        .change
+            width: 30px
+            text-align: center
+            padding: 5px 5px
+            border-radius: 10px
+            color: white
+            box-shadow: -2px 3px 1px $shadow
+            &:hover
+                cursor: pointer
+            &:active
+                box-shadow: none

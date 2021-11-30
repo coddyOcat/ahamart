@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router'
 import { UserCreditCardContent, UserGiftContent, UserHeader, UserHomeContent, UserInfoContent, UserPointPacketContent, UserPromoContent, UserSupportContent } from '../components'
-import { getCustomerInfo } from '../services/user'
+import { getCustomerInfo, getPointPacket, getSupport } from '../services/user'
 
 import style from '../style/screens/user.module.sass'
 
@@ -35,11 +35,15 @@ const user = () => {
         WardName: ""
     })
     const { id } = useParams()
+    const [pointPacket, setPointPacket] = useState()
+    const [supports, setSupport] = useState()
     useEffect( () => {
         const fetchCustomerInfoById = async () => {
             try {
                 // const data = await getCustomerInfo(id)
                 setCustomerInfo(await getCustomerInfo(id))
+                setPointPacket(await getPointPacket(id))
+                setSupport(await getSupport())
             } catch (error) { }
         }
         fetchCustomerInfoById()
@@ -49,10 +53,10 @@ const user = () => {
         else {
             if (cardInd == 0) return (<UserInfoContent customerInfo={customerInfo} setCustomerInfo={setCustomerInfo}/>)
             else if (cardInd == 1) return (<UserCreditCardContent />)
-            else if (cardInd == 2) return (<UserPointPacketContent />)
+            else if (cardInd == 2) return (<UserPointPacketContent pointPacket={pointPacket}/>)
             else if (cardInd == 3) return (<UserPromoContent />)
             else if (cardInd == 4) return (<UserGiftContent />)
-            else if (cardInd == 5) return (<UserSupportContent />)
+            else if (cardInd == 5) return (<UserSupportContent supports={supports}/>)
         }
     }
     return (

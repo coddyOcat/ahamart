@@ -2,21 +2,12 @@ import { PointPacket } from './ui'
 
 import style from '../style/components/userPointPacketContent.module.sass'
 
-const userPointPacketContent = () => {
+const userPointPacketContent = ({pointPacket}) => {
     return (
         <div className={style.userPointPacketContent}>
-            <PointPacket reDate="01/01/2021" point={100} />
-            <PointPacket reDate="01/01/2021" point={100} />
-            <PointPacket reDate="01/01/2021" point={100} />
-            <PointPacket reDate="01/01/2021" point={100} />
-            <PointPacket reDate="01/01/2021" point={100} />
-            <PointPacket reDate="01/01/2021" point={100} />
-            <PointPacket reDate="01/01/2021" point={100} />
-            <PointPacket reDate="01/01/2021" point={100} />
-            <PointPacket reDate="01/01/2021" point={100} />
-            <PointPacket reDate="01/01/2021" point={100} />
-            <PointPacket reDate="01/01/2021" point={100} />
-            <PointPacket reDate="01/01/2021" point={100} />
+            {!!pointPacket && pointPacket.map(point => 
+                <PointPacket key={point.PID} reDate={(new Date(point.REDATE)).toLocaleDateString("en-GB")} point={point.POINTS} />
+            )}
         </div>
     )
 }

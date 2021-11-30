@@ -14,5 +14,20 @@
     .name
         font-weight: bold
         font-size: 16px
+        &:hover
+            cursor: pointer
     .phone
         font-size: 14px
+    .active
+        position: absolute
+        top: 20px
+        right: 25px
+        color: white
+        background-color: $non-active-nav
+        padding: 8px
+        border-radius: 30%
+        box-shadow: -2px 3px 1px $shadow
+        &:hover
+            background-color: $active-element
+        &:active
+            box-shadow: none

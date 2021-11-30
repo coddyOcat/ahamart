@@ -11,6 +11,8 @@ module.exports = app => {
     router.post('/user/find/ssn', User.findSsn)
 
     router.post('/user/login', User.loginCustomer)
+    router.get('/user/getSupport', User.getSupport)
+    router.get('/user/pointPacket/:id', User.getPointPacket)
     router.get('/user/:id', User.selectCustomerInfo)
 
     router.get('/branch', Branch.getListBranch)

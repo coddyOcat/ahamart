@@ -145,3 +145,37 @@ exports.selectCustomerInfo = (req, res) => {
         console.log(err)
     }
 }
+exports.getPointPacket = (req, res) => {
+    try {
+        if(!req.body) {
+            res.status(400).json(
+                {message: "Content can not be empty!"}
+            )
+            return
+        }
+        const {id} = req.params
+        const cid = "Cus_"+id
+        User.getPointPacket(cid, (err, data) => {
+            if (err) console.log(err.message)
+            else res.json(data[0]);
+        })
+    } catch (err) {
+        console.log(err)
+    }
+}
+exports.getSupport = (req, res) => {
+    try {
+        if(!req.body) {
+            res.status(400).json(
+                {message: "Content can not be empty!"}
+            )
+            return
+        }
+        User.getSupport((err, data) => {
+            if (err) console.log(err.message)
+            else res.json(data);
+        })
+    } catch (err) {
+        console.log(err)
+    }
+}

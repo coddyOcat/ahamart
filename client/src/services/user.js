@@ -80,3 +80,13 @@ export const getCustomerInfo = async (userId) => {
         MPoint: LoyaltyCard.MPOINT
     };
   }
+export const getPointPacket = async (userId) => {
+    const url = `/user/pointPacket/${userId}`;
+    const {data} = await Axios.get(url).then(res => res)
+    return data
+}
+export const getSupport = async () => {
+    const url = "/user/getSupport"
+    const {data} = await Axios.get(url).then(res => res)
+    return data 
+}
