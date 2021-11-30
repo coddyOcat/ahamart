@@ -3,7 +3,6 @@ import { Brand } from './ui'
 import image from '../assets'
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import style from '../style/components/userHeader.module.sass' 
-import { useEffect } from 'react'
 
 const userHeader = ({ cardOn, title, customerInfo }) => {
     return (
@@ -22,7 +21,11 @@ const userHeader = ({ cardOn, title, customerInfo }) => {
                     <div className={style.containerCard}>
                         <div className={style.class}>
                             <div className={style.classTitle}>HẠNG</div>
-                            <div className={style.className}>{customerInfo.MClass}</div>
+                            <div className={style.className}>{
+                            customerInfo.MClass == "bronze"? "đồng":
+                            customerInfo.MClass == "silver"? "bạc":
+                            customerInfo.MClass == "gold"? "vàng":
+                            "vip"}</div>
                         </div>
                         <div className={style.mPoint}>{'Điểm tích lũy: ' + customerInfo.MPoint}</div>
                         <div className={style.ePoint}>{'Điểm đổi quà: ' + customerInfo.EPoint}</div>

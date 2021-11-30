@@ -47,7 +47,7 @@ const user = () => {
     const contentRender = () => {
         if(cardOn) return (<UserHomeContent setCardInd={setCardInd} setCardOn={setCardOn}/>)
         else {
-            if (cardInd == 0) return (<UserInfoContent customerInfo={customerInfo}/>)
+            if (cardInd == 0) return (<UserInfoContent customerInfo={customerInfo} setCustomerInfo={setCustomerInfo}/>)
             else if (cardInd == 1) return (<UserCreditCardContent />)
             else if (cardInd == 2) return (<UserPointPacketContent />)
             else if (cardInd == 3) return (<UserPromoContent />)
@@ -57,7 +57,7 @@ const user = () => {
     }
     return (
         <div className={style.user}>
-            <UserHeader title="Thông tin khách hàng" cardOn={cardOn} customerInfo={customerInfo}/>
+            <UserHeader title={route[cardInd]} cardOn={cardOn} customerInfo={customerInfo}/>
             <div className={style.userContent}>
                 {contentRender()}
             </div>

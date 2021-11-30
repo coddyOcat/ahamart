@@ -61,6 +61,30 @@ const register = () => {
             }
         }
     }
+    const checkUserName = async () => {
+        const res1 = await findUserName(userInfo.UserName)
+        if (res1.status == "OK") {
+            setUserNameExist(0)
+        }
+        else if (userInfo.UserName != "") setUserNameExist(1)
+        else setUserNameExist(-1)
+    }
+    const checkPhoneNo = async () => {
+        const res2 = await findPhoneNo(userInfo.PhoneNo)
+        if (res2.status == "OK") {
+            setPhoneExist(0)
+        }
+        else if (userInfo.PhoneNo != "") setPhoneExist(1)
+        else setPhoneExist(-1)
+    }
+    const checkEmail = async () => {
+        const res3 = await findEmail(userInfo.Email)
+        if (res3.status == "OK") {
+            setEmailExist(0)
+        }
+        else if (userInfo.Email != "") setEmailExist(1)
+        else setEmailExist(-1)
+    }
     const handleDob = async (e) => {
         const {name, value} = e.target
         setDob({ ...dob, [name]: value })
@@ -74,7 +98,7 @@ const register = () => {
         <div className={style.register}>
             <RegisterHeader page="ĐĂNG KÝ" step={step}/>
             <div className={style.registerInput}>
-                {step == 1? <RegisterStepOne handleForm={handleForm} userInfo={userInfo} status={[userNameExist, phoneExist, emailExist]}/> 
+                {step == 1? <RegisterStepOne handleForm={handleForm} userInfo={userInfo} checkInfo={[checkUserName,checkPhoneNo,checkEmail]} status={[userNameExist, phoneExist, emailExist]}/> 
                 : step == 2? <RegisterStepTwo handleForm={handleForm} setUserInfo={setUserInfo} userInfo={userInfo} dob={dob} handleDob={handleDob} status={[ssnExist]}/> 
                 : <RegisterStepFinal handleForm={handleForm} userInfo={userInfo}/>}
             </div>

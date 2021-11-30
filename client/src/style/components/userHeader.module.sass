@@ -13,9 +13,14 @@
         flex-direction: row
         width: 90%
         justify-content: space-around
+        .avatar
+            border-radius: 50%
+            box-shadow: -2px 3px 1px $shadow
         .card
             position: relative
             .cardBackground
+                border-radius: 20px
+                box-shadow: -2px 4px 2px $shadow
             .logo
                 position: absolute
                 right: 10px
@@ -46,6 +51,7 @@
         color: white
         font-weight: 500
         font-size: 15px
+        text-shadow: -2px 3px 1px $shadow
     .infoBar
         width: 88%
         display: flex
@@ -53,6 +59,7 @@
         background-color: $home-button
         border-radius: 20px
         color: white
+        box-shadow: -2px 3px 2px $shadow
         .userHomeHeader
             wdith: 100%
             display: flex
