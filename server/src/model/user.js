@@ -23,6 +23,16 @@ User.updateCustomer = (userInfo, result) => {
         result(null)
     })
 }
+User.updateLoyaltyCard = (loyaltyCard, result) => {
+    let query = "CALL Branch_update_LoyaltyCard_to_Customer(?,?,?,?,?,?)"
+    sql.query(query, loyaltyCard, (err) => {
+        if (err) {
+            result(err)
+            return
+        }
+        result(null)
+    })
+}
 User.findUserName = (userName, result) => {
     let query = "SELECT * from ACCINFO where USERNAME = ?"
     sql.query(query, [userName], (err, data) => {

@@ -55,11 +55,16 @@ exports.updateCustomer = async (req, res) => {
             )
             return
         }
-        const userInfo = req.body
+        const userInfo = req.body[0]
+        const loyaltyCard = req.body[1]
         if (userInfo[8].length != 60) userInfo[8] = await hashPassword(userInfo[8])
         User.updateCustomer(userInfo, (err) => {
             if (err) console.log(err.message)
-            else console.log("Cập nhật thành công")
+            else console.log("Cập nhật thông tin cá nhân thành công")
+        })
+        User.updateLoyaltyCard(loyaltyCard, (err) => {
+            if (err) console.log(err.message)
+            else console.log("Cập nhật thẻ thành viên thành công")
         })
     } catch (err) {
         console.log(err)

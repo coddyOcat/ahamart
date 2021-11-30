@@ -59,7 +59,7 @@ const user = () => {
         else if (SUM >= 500) TYPE="gold"
         else if (SUM >= 250) TYPE="silver"
         else TYPE = "bronze"
-        setCustomerInfo({...customerInfo, "MPoint": SUM, "EPoint": SUM - 300, "MClass": TYPE})
+        if (customerInfo.EPoint == 0) setCustomerInfo({...customerInfo, "MPoint": SUM, "EPoint": SUM > 300 ? SUM - 300 : SUM, "MClass": TYPE})
     },[pointPacket])
     const [giftStatus, setGiftStatus] = useState([false, true])
     const changeGift = (index) => {

@@ -46,8 +46,13 @@ export const updateCustomer = async (customerInfo) => {
     var {Ssn, HouseNo, StName, WardName, DistName, CityName, CountryName, UserName, Passw, Email, PhoneNo, Gender, Nationality, DOB, SName, GName} = customerInfo
     DOB = (new Date(customerInfo.DOB)).getFullYear() + "-" + ((new Date(customerInfo.DOB)).getMonth() + 1) + "-" + (new Date(customerInfo.DOB)).getDate()
     const userInfo = [Ssn, HouseNo, StName, WardName, DistName, CityName, CountryName, UserName, Passw, Email, PhoneNo, Gender, Nationality, DOB, SName, GName]
+    
+    var {Cid, Ssn, Bid, MClass, MPoint, EPoint} = customerInfo
+    const loyaltyCard = [Cid, Ssn, Bid, MClass, MPoint, EPoint]
+
     const url = "/user/update"
-    await Axios.post(url, userInfo)
+    await Axios.post(url, [userInfo, loyaltyCard])
+
 }
 export const loginCustomer = async (userInfo) => {
     const url = "/user/login"
