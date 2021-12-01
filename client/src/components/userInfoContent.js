@@ -62,6 +62,7 @@ const userInfoContent = ({ customerInfo, setCustomerInfo}) => {
                 edit={edit} content={"*".repeat(6)}/>
             <div className={style.navEnd} onClick={enableEdit} style={{display: edit? "none": "block"}}>Chỉnh sửa</div>
             <div className={style.navSave} onClick={saveEdit} style={{display: edit? "block": "none"}}>Lưu</div>
+            <div className={style.navSave1} onClick={() => setEdit(false)} style={{display: edit? "block": "none"}}>Hủy chỉnh sửa</div>
         </div>
     )
 }

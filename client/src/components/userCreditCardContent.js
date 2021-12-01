@@ -9,7 +9,7 @@ const userCreditCardContent = () => {
             <CreditCard title="Credit Card 1" content="0001 **** **** 0002" active={0}/>
             <CreditCard title="Credit Card 1" content="0001 **** **** 0002" active={0}/>
             <CreditCard title="Credit Card 1" content="0001 **** **** 0002" active={0}/> */}
-            <div className={style.navEnd}>+</div>
+            <div className={style.navEnd} onClick={() => alert("Chưa hiện thực")}>+</div>
         </div>
     )
 }
