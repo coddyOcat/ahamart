@@ -24,7 +24,7 @@ const HomeScreen = () => {
                         </div>
                         <div className={style.member}>
                             <img className={style.avatar} src={image.phong} />
-                            <div className={style.memberName}>Chung Đông Phong- 1911837</div>
+                            <div className={style.memberName}>Chung Đông Phong - 1911837</div>
                         </div>
                         <div className={style.member}>
                             <img className={style.avatar} src={image.huy} />

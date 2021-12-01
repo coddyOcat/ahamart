@@ -10,7 +10,6 @@ module.exports = app => {
     router.post('/user/find/phoneNo', User.findPhoneNo)
     router.post('/user/find/email', User.findEmail)
     router.post('/user/find/ssn', User.findSsn)
-
     router.post('/user/login', User.loginCustomer)
     router.get('/user/getSupport', User.getSupport)
     router.get('/user/pointPacket/:id', User.getPointPacket)

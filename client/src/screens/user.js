@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router'
 import { UserCreditCardContent, UserGiftContent, UserHeader, UserHomeContent, UserInfoContent, UserPointPacketContent, UserPromoContent, UserSupportContent } from '../components'
-import { getCustomerInfo, getPointPacket, getSupport } from '../services/user'
+import { getCustomerInfo, getPointPacket, getSupport, updateCustomer } from '../services/user'
 
 import style from '../style/screens/user.module.sass'
 
@@ -68,6 +68,9 @@ const user = () => {
             setCustomerInfo({...customerInfo, "EPoint": customerInfo.EPoint - 300})
         }
     }
+    useEffect( () => {
+        updateCustomer(customerInfo)
+    }, [customerInfo.EPoint])
     const contentRender = () => {
         if(cardOn) return (<UserHomeContent setCardInd={setCardInd} setCardOn={setCardOn}/>)
         else {
